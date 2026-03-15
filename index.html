@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="ti">
 <head>
-
-    <meta charset="UTF-8">
-    <title>Jo-yatha Design Studio</title>
-    <link rel="stylesheet" href="style.css">
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Jo-yatha Design Studio | Shire</title>
-    <link rel="icon" type="image/png" href="h.png">
-
+    <title>Jo-yatha Design Studio | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -21,247 +12,162 @@
             --primary-blue: #1d3557;
             --vibrant-yellow: #ffb703;
             --white: #f1faee;
-            --dark-blue: #0b132b;
             --card-bg: #ffffff;
             --text-color: #1d3557;
         }
 
-        /* Dark Mode Styles */
-        body.dark-theme {
-            --white: #121212;
-            --primary-blue: #f1faee;
-            --dark-blue: #000000;
-            --card-bg: #1e1e1e;
-            --text-color: #f1faee;
-        }
-
-        html { scroll-behavior: smooth; }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+            margin: 0;
             background-color: var(--white);
             color: var(--text-color);
             line-height: 1.6;
-            transition: 0.3s ease;
         }
 
+        /* Header Style */
         header {
             background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
-            color: white; padding: 60px 20px; text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            position: relative;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
         }
 
-        .dark-mode-toggle {
-            position: absolute; top: 20px; right: 20px;
-            background: var(--vibrant-yellow); border: none; padding: 10px 15px;
-            border-radius: 50px; cursor: pointer; font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;
-            color: #0b132b;
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
         }
 
-        .logo-img { width: 300px; max-width: 90%; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); }
-
-        .container { padding: 40px 20px; max-width: 1200px; margin: auto; }
-
-        /* About Section */
-        .about-card {
-            display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
-            background: var(--card-bg); padding: 40px; border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 60px;
-            border-right: 10px solid var(--primary-red); gap: 40px;
-        }
-
-        .about-text { flex: 1; min-width: 300px; text-align: right; }
-
-        .team-photos-container { display: flex; gap: 20px; justify-content: center; }
-
-        .team-img {
-            width: 150px; height: 200px; border-radius: 20px; object-fit: cover;
-            border: 5px solid var(--primary-blue); box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: 0.4s ease;
-        }
-        .team-img:hover { transform: rotate(-3deg) scale(1.05); }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px; margin-top: 40px; margin-bottom: 80px;
-        }
-
-        .service-card {
-            background: var(--card-bg); padding: 35px 20px; border-radius: 25px;
-            text-align: center; border-bottom: 8px solid var(--vibrant-yellow);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: all 0.4s ease;
-        }
-
-        .service-card:hover { 
-            transform: translateY(-15px); 
-            background: var(--primary-blue); 
-            color: white; 
-        }
-
-        .service-icon {
-            font-size: 3rem; color: var(--primary-red);
-            margin-bottom: 20px; transition: 0.3s;
-        }
-        .service-card:hover .service-icon { color: var(--vibrant-yellow); transform: scale(1.2); }
-
-        /* Gallery Interactivity */
+        /* Gallery Grid - Responsive */
         .gallery {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
-        .gallery-item { 
-            border-radius: 15px; overflow: hidden; border: 3px solid var(--primary-blue); 
-            transition: 0.4s ease; position: relative;
+        /* Card Design & Hover Animation */
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--primary-blue);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .gallery-item img { width: 100%; display: block; transition: 0.5s ease; }
-
-        .gallery-item:hover { 
-            border-color: var(--primary-red); 
-            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.3);
-            z-index: 5;
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: var(--vibrant-yellow);
         }
 
-        .gallery-item:hover img { transform: scale(1.1); filter: brightness(1.1); }
-
-        /* Floating Contact */
-        .floating-contact { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
-        .contact-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; text-decoration: none; }
-        .whatsapp { background-color: #25d366; }
-        .telegram { background-color: #0088cc; }
-        .contact-btn:hover { transform: scale(1.1) rotate(10deg); }
-
-        /* Footer */
-        footer { background: var(--dark-blue); color: white; padding: 60px 20px; text-align: center; margin-top: 50px; }
-        .client-badge { border: 1px solid rgba(255,255,255,0.3); padding: 8px 25px; border-radius: 50px; background: rgba(255,255,255,0.1); font-size: 0.95rem; }
-
-        .cta-button {
-            display: inline-block; background: linear-gradient(45deg, var(--primary-red), #ff4d6d);
-            color: white; padding: 20px 60px; text-decoration: none; font-size: 1.5rem;
-            font-weight: bold; border-radius: 60px; transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+        /* Full Image View - contain logic */
+        .gallery-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: contain; /* ስእሊ ከይተቆርጸ ምሉእ ንክረአ */
+            display: block;
+            background-color: #fafafa; /* ስእሊ ካብ ስክሪን ንእሽተይ እንተኾይኑ ድሕሪ ባይታ ጻዕዳ ይኸውን */
         }
-        .cta-button:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(230, 57, 70, 0.5); }
 
-        @media (max-width: 600px) { .team-img { width: 130px; height: 170px; } }
+        .item-label {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        /* Floating Telegram Button */
+        .tg-link {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0088cc;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        footer {
+            background: #0b132b;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary-red);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .cta-btn:hover { background: #b80322; transform: scale(1.05); }
+
     </style>
 </head>
 <body>
 
     <header>
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-            <i class="fas fa-moon"></i> Dark Mode
-        </button>
-        <img src="h.png" alt="Jo-yatha Logo" class="logo-img">
-        <p style="font-weight: bold; color: var(--vibrant-yellow); font-size: 1.1rem; margin-top: 15px;">
-            Creative Design Duo | Bingo House Specialists
-        </p>
+        <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: 2px;">JO-YATHA</h1>
+        <p style="font-size: 1.2rem; font-weight: bold; color: var(--vibrant-yellow);">Creative Design Duo | Bingo House Specialists</p>
     </header>
 
     <div class="container">
-        <section class="about-card">
-            <div class="about-text">
-                <h2 style="color: var(--primary-red); border:none; font-size: 2.2rem;">ብዛዕባና</h2>
-                <p style="font-size: 1.2rem;">ንሕና <b>Jo-yatha Design Studio</b> ኢና። ያፌት መብራህቱን ዮናታንን ብሓባር ብምዃን፡ ኣብ ዓውዲ <b>Bingo House</b> ዲዛይንን ምምሕዳርን ምሉእ ደገፍ ንህብ።</p>
-            </div>
-            <div class="team-photos-container">
-                <img src="yafet.jpg" alt="Yafet" class="team-img">
-                <img src="Yonatan.png" alt="Yonatan" class="team-img">
-            </div>
-        </section>
-
-        <section style="text-align: center;">
-            <h2 style="border-bottom: 4px solid var(--vibrant-yellow); display: inline-block; padding-bottom: 10px;">ኣገልግሎትና</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-trophy"></i></div>
-                    <h3>1. ዓቢይ ፀወታ ካርዲ</h3>
-                    <p>ንቢንጎ ሃውስ ዝኾኑ ዓበይቲ ናይ ፀወታ ካርድታት።</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-calendar-day"></i></div>
-                    <h3>2. መዓልታዊ ካርዲ</h3>
-                    <p>መዓልታዊ ንዝካየዱ ፀወታታት ዝኾኑ ካርድታት።</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
-                    <h3>3. ናይ ምምሕዳር ወረቓቕቲ</h3>
-                    <p>ሰራሕተኛ መቆፃፃሪ፣ ፔሮልን ካልኦት ወረቓቕትን።</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-share-nodes"></i></div>
-                    <h3>4. ማሕበራዊ ሚድያ ፖስተር</h3>
-                    <p>ንፌስቡክን ቴሌግራምን ዝኾኑ ማራክቲ ፖስተራት።</p>
-                </div>
-            </div>
-        </section>
-
-        <h2 style="text-align: center; display: block; margin: auto; width: fit-content; margin-bottom: 40px;">ዝሰራሕናዮም ዲዛይናት</h2>
+        <h2 style="text-align: center; border-bottom: 3px solid var(--vibrant-yellow); display: inline-block; padding-bottom: 5px;">ዝሰራሕናዮም ዲዛይናት</h2>
+        
         <div class="gallery">
-            <div class="gallery-item"><img src="yes.png" alt="Design" onerror="this.src='yes.jpg'"></div>
-            <div class="gallery-item"><img src="32 Dayss - Copy.png" alt="Design" onerror="this.src='32 Dayss - Copy.jpg'"></div>
-            <div class="gallery-item"><img src="32 Dayss.png" alt="Design" onerror="this.src='32 Dayss.jpg'"></div>
-            <div class="gallery-item"><img src="20000.png" alt="Design" onerror="this.src='20000.jpg'"></div>
-            <div class="gallery-item"><img src="70000 - Copy.png" alt="Design" onerror="this.src='70000 - Copy.jpg'"></div>
-            <div class="gallery-item"><img src="70000.png" alt="Design" onerror="this.src='70000.jpg'"></div>
-            <div class="gallery-item"><img src="75000.png" alt="Design" onerror="this.src='75000.jpg'"></div>
-            <div class="gallery-item"><img src="100000.png" alt="Design" onerror="this.src='100000.jpg'"></div>
-            <div class="gallery-item"><img src="120000.png" alt="Design" onerror="this.src='120000.jpg'"></div>
-            <div class="gallery-item"><img src="200000 - Copy.png" alt="Design" onerror="this.src='200000 - Copy.jpg'"></div>
-            <div class="gallery-item"><img src="200000.png" alt="Design" onerror="this.src='200000.jpg'"></div>
-            <div class="gallery-item"><img src="700000.png" alt="Design" onerror="this.src='700000.jpg'"></div>
-            <div class="gallery-item"><img src="32 Dayss.png" alt="Design" onerror="32 Dayss.jpg'"></div>
-            <div class="gallery-item"><img src="20000.png" alt="Design" onerror="this.src='20000.jpg'"></div>
-            <div class="gallery-item"><img src="70000 - Copy.png" alt="Design" onerror="this.src='70000 - Copy.jpg'"></div>
-            <div class="gallery-item"><img src="1000000 Prize.png" alt="Design" onerror="this.src='1000000 Prize.jpg'"></div>
-            <div class="gallery-item"><img src="End - Copy.png" alt="Design" onerror="this.src='End - Copy.jpg'"></div>
-            <div class="gallery-item"><img src="End.png" alt="Design" onerror="this.src='End.jpg'"></div>
-            <div class="gallery-item"><img src="The Newest - Copy.png" alt="Design" onerror="this.src='The Newest - Copy.jpg'"></div>
-            <div class="gallery-item"><img src="The Newest.png" alt="Design" onerror="this.src='The Newest.jpg'"></div>
+            <div class="gallery-item"><img src="32 Dayss - Copy (3).png" onerror="this.src='32 Dayss - Copy (3).jpg'"><div class="item-label">Design Poster</div></div>
+            <div class="gallery-item"><img src="32 Dayss - Copy.png" onerror="this.src='32 Dayss - Copy.jpg'"><div class="item-label">Design Poster</div></div>
+            <div class="gallery-item"><img src="32 Dayss.png" onerror="this.src='32 Dayss.jpg'"><div class="item-label">Design Poster</div></div>
+            <div class="gallery-item"><img src="20000.png" onerror="this.src='20000.jpg'"><div class="item-label">Award Design</div></div>
+            <div class="gallery-item"><img src="70000 - Copy.png" onerror="this.src='70000 - Copy.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="70000.png" onerror="this.src='70000.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="75000.png" onerror="this.src='75000.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="100000.png" onerror="this.src='100000.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="120000.png" onerror="this.src='120000.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="200000 - Copy.png" onerror="this.src='200000 - Copy.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="200000.png" onerror="this.src='200000.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="700000.png" onerror="this.src='700000.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="1000000 Prize.png" onerror="this.src='1000000 Prize.jpg'"><div class="item-label">Grand Prize</div></div>
+            <div class="gallery-item"><img src="End - Copy.png" onerror="this.src='End - Copy.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="End.png" onerror="this.src='End.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="The Newest - Copy.png" onerror="this.src='The Newest - Copy.jpg'"><div class="item-label">New Design</div></div>
+            <div class="gallery-item"><img src="The Newest.png" onerror="this.src='The Newest.jpg'"><div class="item-label">New Design</div></div>
+            <div class="gallery-item"><img src="300 000 new.png" onerror="this.src='300 000 new.jpg'"><div class="item-label">Bingo Poster</div></div>
+            <div class="gallery-item"><img src="yafet.jpg" onerror="this.src='yafet.png'"><div class="item-label">Yafet Mebrahtu</div></div>
+            <div class="gallery-item"><img src="Yonatan.png" onerror="this.src='Yonatan.jpg'"><div class="item-label">Yonatan</div></div>
         </div>
 
-        <div style="text-align: center; margin-top: 60px;">
-            <a href="tel:0984071762" class="cta-button">📞 ሕጂ ደውሉልና</a>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="tel:0984071762" class="cta-btn">📞 ሕጂ ደውሉልና</a>
         </div>
     </div>
 
-    <div class="floating-contact">
-        <a href="https://t.me/JoYATHA2" class="contact-btn telegram" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-    </div>
+    <a href="https://t.me/JoYATHA2" class="tg-link" target="_blank">
+        <i class="fab fa-telegram-plane"></i>
+    </a>
 
     <footer>
-        <div style="margin-bottom: 40px;">
-            <h3 style="color: var(--vibrant-yellow); margin-bottom: 25px; font-size: 1.6rem;">ዝተኣማመኑና ዓማዊል</h3>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; opacity: 0.95;">
-                <span class="client-badge">Gelila Bingo House</span>
-                <span class="client-badge">Bones Bingo House</span>
-                <span class="client-badge">HD PRO Bingo</span>
-                <span class="client-badge">ግእዝ Bingo House</span>
-            </div>
-        </div>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); width: 80%; margin: 30px auto;">
-
-        <div style="font-size: 1.8rem; color: var(--vibrant-yellow); font-weight: bold; margin-bottom: 10px;">0984071762 / 0978590652</div>
-        <p style="opacity: 0.8; margin: 5px 0;">&copy; 2026 Jo-yatha Design Studio. All Rights Reserved.</p>
-        <p style="opacity: 0.5; font-size: 0.85rem;">Shire, Tigray</p>
+        <div style="font-size: 1.8rem; color: var(--vibrant-yellow); font-weight: bold;">0984071762 / 0978590652</div>
+        <p style="margin-top: 10px; opacity: 0.8;">&copy; 2026 Jo-yatha Design Studio. Shire, Tigray</p>
     </footer>
 
-    <script>
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-theme');
-            const btn = document.querySelector('.dark-mode-toggle');
-            if(body.classList.contains('dark-theme')) {
-                btn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-            } else {
-                btn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-            }
-        }
-    </script>
 </body>
 </html>
