@@ -7,6 +7,71 @@
     <title>Jo-yatha Design Studio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+         /* Professional Form Styling */
+.contact-section {
+    background: var(--card-bg);
+    padding: 60px 30px;
+    border-radius: 40px;
+    margin: 80px 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.contact-form {
+    display: grid;
+    gap: 20px;
+    max-width: 700px;
+    margin: 40px auto 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: right; /* Aligned for Tigrinya */
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--primary-blue);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 15px;
+    border: 2px solid #e1e8ef;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Animation when clicking the box */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.2);
+    transform: translateX(-5px); /* Subtle shift for Tigrinya flow */
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-red));
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(29, 53, 87, 0.3);
+}
         
         /* Premium Why Choose Us Section */
 .why-us-premium {
@@ -332,7 +397,45 @@
         </div>
     </div>
 </section>
-        
+        <section class="contact-section" data-aos="fade-up">
+    <div style="text-align: center;">
+        <h2 style="color: var(--primary-red); font-size: 2.5rem;">ሕጂ ይኣዝዙ</h2>
+        <p>ነዚ ቅጥዒ ብምምላእ ሕቶኹም ወይ ትእዛዝኩም ስደዱልና።</p>
+    </div>
+
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+        <input type="hidden" name="access_key" value="53fbcf92-4514-486e-8867-0b6f8ef3c4d7">
+
+        <div class="form-group">
+            <label>ሙሉእ ስም</label>
+            <input type="text" name="name" placeholder="ስምኩም ኣብዚ ፅሓፉ..." required>
+        </div>
+
+        <div class="form-group">
+            <label>ቁፅሪ ቴሌፎን</label>
+            <input type="tel" name="phone" placeholder="09..." required>
+        </div>
+
+        <div class="form-group">
+            <label>ዓይነት ኣገልግሎት</label>
+            <select name="service" required>
+                <option value="" disabled selected>ኣገልግሎት ምረፁ</option>
+                <option value="Bingo Cards">ናይ ቢንጎ ካርድታት (Cards)</option>
+                <option value="Posters">ማሕበራዊ ሚድያ ፖስተር (Posters)</option>
+                <option value="Management Docs">ናይ ምምሕዳር ወረቓቕቲ</option>
+                <option value="Other">ካልእ...</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>ተወሳኺ ሓበሬታ</label>
+            <textarea name="message" rows="5" placeholder="ዝርዝር ትእዛዝኩም ኣብዚ ፅሓፉልና..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">መልእኽቲ ስደድ <i class="fas fa-paper-plane"></i></button>
+    </form>
+</section>
+         
     <footer>
         <div style="margin-bottom: 40px;">
             <h3 style="color: var(--vibrant-yellow); margin-bottom: 20px; font-size: 1.5rem;">ዝተኣማመኑና ዓማዊል</h3>
