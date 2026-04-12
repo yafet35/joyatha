@@ -6,6 +6,83 @@
     <title>Jo-yatha Design Studio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Premium Why Choose Us Section */
+.why-us-premium {
+    background: linear-gradient(rgba(11, 19, 43, 0.9), rgba(29, 53, 87, 0.9)), url('your-bg.jpg'); /* Dark elegant overlay */
+    background-size: cover;
+    padding: 80px 20px;
+    border-radius: 50px;
+    margin: 80px 0;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.why-header h2 {
+    font-size: 3rem;
+    color: var(--vibrant-yellow);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.premium-card {
+    background: rgba(255, 255, 255, 0.05); /* Glass effect */
+    backdrop-filter: blur(15px); /* Blurs background behind card */
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth pro animation */
+    position: relative;
+    overflow: hidden;
+}
+
+/* The Animation when you hover */
+.premium-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-red);
+    box-shadow: 0 20px 40px rgba(230, 57, 70, 0.3);
+}
+
+.premium-card i {
+    font-size: 3.5rem;
+    background: linear-gradient(to bottom, var(--vibrant-yellow), var(--primary-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+}
+
+.premium-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.premium-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Floating Animation for the icons */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.premium-card i {
+    animation: float 3s ease-in-out infinite;
+}
+
+        
         :root {
             --primary-red: #e63946;
             --primary-blue: #1d3557;
@@ -226,7 +303,33 @@
     <div class="floating-contact">
         <a href="https://t.me/JoYATHA2" class="contact-btn telegram" target="_blank"><i class="fab fa-telegram-plane"></i></a>
     </div>
+<section class="why-us-premium">
+    <div class="why-header" data-aos="fade-down">
+        <h2>ስለምንታይ ንዓና ይመርጹ?</h2>
+        <div style="width: 100px; height: 5px; background: var(--primary-red); margin: 20px auto; border-radius: 5px;"></div>
+    </div>
 
+    <div class="premium-grid">
+        <div class="premium-card" data-aos="fade-right" data-aos-delay="100">
+            <i class="fas fa-bolt"></i>
+            <h3>ቅልጡፍ ኣሰራርሓ</h3>
+            <p>ግዜ ንዓኻትኩም ወርቂ ምዃኑ ንፈልጥ ኢና። ዝኾነ ዲዛይን ብዝተባህለሉ ግዜን ሰዓትን ብልክዕ ነረክብ።</p>
+        </div>
+
+        <div class="premium-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-gem"></i>
+            <h3>ልዑል ፅሬት</h3>
+            <p>ንዓማዊልኩም ብቐሊሉ ዝስሕቡ፡ ንዓይንኹም ዝማርኹን ዘመናውያን ዝኾኑ ዲዛይናት ጥራይ ነዳልው።</p>
+        </div>
+
+        <div class="premium-card" data-aos="fade-left" data-aos-delay="300">
+            <i class="fas fa-shield-alt"></i>
+            <h3>ተኣማንነት</h3>
+            <p>ምስ ብዙሓት ዝተፈላለዩ ናይ ቢንጎ ኣብያተ መግቢ ብምትእምማንን ብታማንን ንሰርሕ ዘለና ትካል ኢና።</p>
+        </div>
+    </div>
+</section>
+        
     <footer>
         <div style="margin-bottom: 40px;">
             <h3 style="color: var(--vibrant-yellow); margin-bottom: 20px; font-size: 1.5rem;">ዝተኣማመኑና ዓማዊል</h3>
